@@ -1,0 +1,103 @@
+@use "../../../../config/base.module" as *;
+
+@mixin card-base {
+  height: 100%;
+  width: 100%;
+  padding: 80px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left_card {
+  @include card-base;
+  position: relative;
+  display: none;
+
+  .happy_user {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .lend_sqr_logo {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+  }
+}
+
+.right_card {
+  @include card-base;
+  padding: 20px;
+  box-shadow: 0px 15px 90px 0px #00000008;
+  align-items: start;
+  position: relative;
+
+  .right_card_header {
+    color: $typography-header-color;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 54.64px;
+  }
+
+  .right_card_header2 {
+    color: #545f7d;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .right_card_inner_wrapper {
+    width: 100%;
+    position: relative;
+    height: 100%;
+  }
+
+  .right_card_input_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 25px;
+    margin-top: 50px;
+  }
+
+  .forgot_pwd {
+    color: $primary-color;
+    line-height: 16.39px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .button {
+    margin-top: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .left_card {
+    display: flex;
+  }
+  .right_card {
+    padding: 80px 100px;
+    align-items: center;
+
+    .right_card_inner_wrapper {
+      height: auto;
+      width: auto;
+    }
+
+    .email_input,
+    .pwd_input,
+    .button {
+      width: 447px;
+    }
+
+    .button {
+      position: static;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+@use "../../../config/base.module" as *;
+
+.typography {
+  color: $typography-paragraph-color;
+}
