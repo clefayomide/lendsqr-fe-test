@@ -1,0 +1,17 @@
+.button {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  gap: 10px;
+  color: #213f7d;
+  background-color: white;
+  width: 100%;
+  border-radius: 0;
+  padding: 0 20px 0 20px;
+  font-weight: 400;
+}
+
+.active {
+  background-color: lighten($color: #39cdcc, $amount: 40%);
+  border-left: 5px solid #39CDCC;
+}

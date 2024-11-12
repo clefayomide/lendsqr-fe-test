@@ -1,0 +1,31 @@
+@use "../../../../../config/base.module" as *;
+
+.container {
+  height: 100dvh;
+  width: 100vw;
+  overflow-y: hidden;
+  background-color: #fbfbfb;
+
+  .content_container {
+    display: flex;
+
+    margin-top: 100px;
+    height: calc(100dvh - 100px);
+  }
+
+  .sidebar_container {
+    height: 100%;
+  }
+
+  .content_area,
+  .sidebar_container {
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+  .content_area {
+    width: calc(100% - $sidebar-width);
+    margin-left: $sidebar-width;
+    padding: 30px ;
+  }
+}

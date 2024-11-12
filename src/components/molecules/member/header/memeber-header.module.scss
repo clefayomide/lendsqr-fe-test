@@ -1,0 +1,29 @@
+.toolbox_container {
+  margin-left: 72px ;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .docs {
+    text-decoration: underline;
+    font-size: 16px;
+    color: #213f7d;
+  }
+
+  .toolbox_actions,
+  .toolbox_actions2 {
+    gap: 40px;
+  }
+
+  .toolbox_actions,
+  .toolbox_actions2,
+  .toolbor_user_actions {
+    display: flex;
+    align-items: center;
+  }
+
+  .toolbor_user_actions {
+    gap: 10px;
+  }
+}

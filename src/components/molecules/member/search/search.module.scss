@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  height: 40px;
+  width: 400px;
+
+  .search_btn,
+  .search_input {
+    height: 100%;
+  }
+  .search_input {
+    width: calc(400px - 56px);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    &::placeholder {
+      color: #545f7d;
+      font-size: 14px;
+    }
+  }
+
+  .search_btn {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    width: 56px;
+    min-width: 56px;
+  }
+}
