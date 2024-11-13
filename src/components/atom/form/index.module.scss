@@ -5,14 +5,13 @@
   gap: 3px;
   font-weight: 500;
 
-  // h-[46px] rounded-[10px] border outline-none focus:outline-none px-3
   input {
     height: 50px;
     border-radius: 5px;
     border: 1px solid #545f7d26;
     outline: none;
     padding: 0 10px 0 10px;
-    
+    font-family: var(--avenir);
 
     &:focus {
       outline: none;
@@ -22,10 +21,9 @@
     &:invalid {
       border: 1px solid red;
     }
-    &::placeholder{
+    &::placeholder {
       font-size: 14px;
-      color: #545F7D;
-      
+      color: #545f7d;
     }
   }
 

@@ -1,0 +1,19 @@
+.card {
+  box-shadow: 3px 5px 20px 0px #0000000a;
+  background-color: white;
+  border: 1px solid #213f7d0f;
+  padding-left: 30px;
+  padding-right: 30px;
+  .table {
+    border-collapse: collapse;
+
+    .table_body {
+      tr {
+        border-bottom: 1px solid #213f7d1a;
+      }
+      tr:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

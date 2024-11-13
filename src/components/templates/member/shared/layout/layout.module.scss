@@ -6,6 +6,11 @@
   overflow-y: hidden;
   background-color: #fbfbfb;
 
+  .stats_wrapper,
+  .table_wrapper {
+    margin-top: 40px;
+  }
+
   .content_container {
     display: flex;
 
@@ -26,6 +31,6 @@
   .content_area {
     width: calc(100% - $sidebar-width);
     margin-left: $sidebar-width;
-    padding: 30px ;
+    padding: 30px;
   }
 }

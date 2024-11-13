@@ -70,14 +70,14 @@ const Sidebar = () => {
         return (
           <div key={title} className={style.bar}>
             {title && <Typography className={style.title}>{title}</Typography>}
-            {routes.map(({ title, isActive, icon: Icon }) => {
+            {routes.map(({ title, isActive, icon: Icon }, index) => {
               return (
                 <SidebarButton
                   key={title}
                   className={style.button}
                   isActive={isActive}
                 >
-                  <Icon />
+                  <Icon key={title + index} />
                   {title}
                 </SidebarButton>
               );

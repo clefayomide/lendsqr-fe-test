@@ -15,4 +15,25 @@ const Button = (props: ButtonPropType) => {
   );
 };
 
+const Inactive = () => {
+  return <Button className={style.inactive}>Inactive</Button>;
+};
+
+const Pending = () => {
+  return <Button className={style.pending}>Pending</Button>;
+};
+
+const Blacklisted = () => {
+  return <Button className={style.blacklisted}>Blacklisted</Button>;
+};
+
+const Active = () => {
+  return <Button className={style.active}>Active</Button>;
+};
+
+Button.Inactive = Inactive;
+Button.Pending = Pending;
+Button.Blacklisted = Blacklisted;
+Button.Active = Active;
+
 export default Button;

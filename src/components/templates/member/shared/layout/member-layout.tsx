@@ -17,4 +17,15 @@ const MemberLayout = ({ children }: { children: ReactNode }) => {
   );
 };
 
+const StatisticsWrapper = ({ children }: { children: ReactNode }) => {
+  return <div className={style.stats_wrapper}>{children}</div>;
+};
+
+const TableWrapper = ({ children }: { children: ReactNode }) => {
+  return <div className={style.table_wrapper}>{children}</div>;
+};
+
+MemberLayout.StatisticsWrapper = StatisticsWrapper;
+MemberLayout.TableWrapper = TableWrapper;
+
 export default MemberLayout;

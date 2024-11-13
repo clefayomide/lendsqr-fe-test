@@ -8,6 +8,7 @@
   font-size: 14px;
   outline: none;
   border: none;
+  font-family: var(--avenir);
 
   &:focus {
     outline: none;
@@ -17,4 +18,42 @@
   &:disabled {
     background-color: lighten($color: #39cdcc, $amount: 10%);
   }
+}
+
+.inactive,
+.pending,
+.blacklisted,
+.active {
+  font-weight: 400;
+  height: 30px;
+  border-radius: 100px;
+  // padding: 0 5px 0 5px;
+}
+
+.inactive {
+  color: #545f7d;
+  background-color: #f5f6f7;
+  width: 80px;
+  min-width: 80px;
+}
+
+.pending {
+  color: #e9b200;
+  background-color: #fdf8e6;
+  width: 90px;
+  min-width: 90px;
+}
+
+.blacklisted {
+  color: #e4033b;
+  background-color: #fde6ec;
+  width: 100px;
+  min-width: 100px;
+}
+
+.active {
+  color: #39cd62;
+  background-color: #f3fcf6;
+  width: 70px;
+  min-width: 70px;
 }

@@ -27,6 +27,7 @@ const avenirNext = localFont({
       style: "normal",
     },
   ],
+  variable: "--avenir",
 });
 
 export default function RootLayout({
