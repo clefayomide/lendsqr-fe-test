@@ -1,7 +1,7 @@
 import Table from "@/components/atom/table/Table";
 import { LendianTableColumnType, LendianTableDataType } from "@/types";
 import Button from "@/components/atom/button/button";
-
+import { ReactNode } from "react";
 const Row = ({
   item,
   column,
@@ -9,7 +9,7 @@ const Row = ({
   item: LendianTableDataType[0];
   column: LendianTableColumnType;
 }) => {
-  const render = (uid: string) => {
+  const renderCell = (uid: string) => {
     const value = item[uid].toLowerCase();
     switch (true) {
       case value === "inactive":
@@ -18,18 +18,21 @@ const Row = ({
         return <Button.Pending />;
       case value === "blacklisted":
         return <Button.Blacklisted />;
-      case value === "pending":
-        return <Button.Pending />;
       case value === "active":
         return <Button.Active />;
       default:
         return item[uid];
     }
   };
+
   return (
     <Table.TableRow>
-      {column.map(({ uid }) => {
-        return <Table.TableData key={uid}>{render(uid)}</Table.TableData>;
+      {column.map((col) => {
+        return (
+          <Table.TableData key={col.uid}>
+            {col.render ? (col.render(item) as ReactNode) : renderCell(col.uid)}
+          </Table.TableData>
+        );
       })}
     </Table.TableRow>
   );

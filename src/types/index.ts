@@ -1,6 +1,6 @@
 import { ReactNode, SVGAttributes } from "react";
 
-export type SvgIconType = SVGAttributes<SVGSVGElement>;
+export type SvgIconPropType = SVGAttributes<SVGSVGElement>;
 
 type TypographyVariantType = keyof JSX.IntrinsicElements;
 
@@ -21,6 +21,9 @@ export type ButtonPropType = JSX.IntrinsicElements["button"];
 export type LendianTableColumnType = Array<{
   name: ReactNode;
   uid: string;
+  render?: (value: {
+    [key: string]: any;
+  }) => JSX.Element | React.FC | React.ReactNode;
 }>;
 
 export type LendianTableDataType = {
@@ -28,15 +31,41 @@ export type LendianTableDataType = {
   [key: string]: string;
 }[];
 
-export type LendianTableType = {
+export type LendianTablePropType = {
   column: LendianTableColumnType;
   data: LendianTableDataType;
 };
 
-export type TableType = JSX.IntrinsicElements["table"];
-export type TableHeadType = JSX.IntrinsicElements["thead"];
-export type TableHeadCellType = JSX.IntrinsicElements["th"];
-export type TableRowType = JSX.IntrinsicElements["tr"];
-export type TableBodyType = JSX.IntrinsicElements["tbody"];
-export type TableFootType = JSX.IntrinsicElements["tfoot"];
-export type TableDataType = JSX.IntrinsicElements["td"];
+export type TablePropType = JSX.IntrinsicElements["table"];
+export type TableHeadPropType = JSX.IntrinsicElements["thead"];
+export type TableHeadCellPropType = JSX.IntrinsicElements["th"];
+export type TableRowPropType = JSX.IntrinsicElements["tr"];
+export type TableBodyPropType = JSX.IntrinsicElements["tbody"];
+export type TableFootPropType = JSX.IntrinsicElements["tfoot"];
+export type TableDataPropType = JSX.IntrinsicElements["td"];
+
+export type PaginationPropType = {
+  currentPage: number;
+  totalItems: number;
+  itemsPerPage: number;
+  onPageChange: (pageNumber: number) => void;
+};
+
+type DropdownOptions = {
+  id: string | number;
+  label: ReactNode;
+}[];
+
+type SelectOptions ={
+  value:string;
+  label: ReactNode;
+}[]
+
+export type DropdownPropType = {
+  trigger?: ReactNode;
+  options: DropdownOptions;
+};
+
+export type SelectPropType = {
+  options: SelectOptions
+}

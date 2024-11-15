@@ -1,3 +1,7 @@
+@use "../../../config/base.module" as *;
+
+// input start
+
 .input_label {
   display: flex;
   position: relative;
@@ -15,7 +19,7 @@
 
     &:focus {
       outline: none;
-      border: 1px solid #39cdcc;
+      border: 1px solid $primary-color;
     }
 
     &:invalid {
@@ -34,3 +38,61 @@
     bottom: 0px;
   }
 }
+
+// input end
+
+// select start
+
+.custom_select {
+  width: fit-content;
+  position: relative;
+  height: 30px;
+  min-width: 80px;
+  min-height: 30px;
+
+  .select_arrow_down {
+    position: absolute;
+    top: 30%;
+    right: 10px;
+  }
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+  }
+
+  &::before {
+    border-bottom: var(--size) solid #213f7d;
+    top: 30%;
+  }
+
+  &::after {
+    border-top: var(--size) solid #213f7d;
+    top: 55%;
+  }
+
+  select {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    padding: 0 10px 0 10px;
+
+    background-color: #213f7d1a;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #213f7d;
+
+    &:focus {
+      border: 1px solid $primary-color;
+      background-color: none !important;
+    }
+  }
+}
+
+// select end

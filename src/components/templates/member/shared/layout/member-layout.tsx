@@ -25,7 +25,12 @@ const TableWrapper = ({ children }: { children: ReactNode }) => {
   return <div className={style.table_wrapper}>{children}</div>;
 };
 
+const PaginationWrapper = ({ children }: { children: ReactNode }) => {
+  return <div className={style.pagination_wrapper}>{children}</div>;
+};
+
 MemberLayout.StatisticsWrapper = StatisticsWrapper;
 MemberLayout.TableWrapper = TableWrapper;
+MemberLayout.PaginationWrapper = PaginationWrapper;
 
 export default MemberLayout;

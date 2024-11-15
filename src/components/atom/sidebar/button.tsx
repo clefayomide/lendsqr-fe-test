@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import style from "./index.module.scss";
 import Button from "../button/button";
-import { Users2 } from "@/assets";
+
 import { classnames } from "@/utils";
 
 const SidebarButton = ({

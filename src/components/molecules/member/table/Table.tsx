@@ -1,13 +1,16 @@
 import React from "react";
 import Table from "@/components/atom/table/Table";
-import { LendianTableType } from "@/types";
-import Row from "./Row";
+import { LendianTablePropType } from "@/types";
+import Row from "./row";
 import Card from "@/components/atom/card/card";
 import style from "./table.module.scss";
-
-const LendianTable = ({ column, data }: LendianTableType) => {
+const LendianTable = ({ column, data }: LendianTablePropType) => {
   const renderColumn = column.map(({ uid, name }) => {
-    return <Table.TableHeadCell key={uid}>{name}</Table.TableHeadCell>;
+    return (
+      <Table.TableHeadCell className={!name ? style.head_cell : ""} key={uid}>
+        {name}
+      </Table.TableHeadCell>
+    );
   });
 
   return (

@@ -27,7 +27,7 @@ type BarTypes = Array<{
   routes: Array<{
     title: string;
     isActive: boolean;
-    icon: FC; // Each icon should be a valid React component
+    icon: FC;
   }>;
 }>;
 

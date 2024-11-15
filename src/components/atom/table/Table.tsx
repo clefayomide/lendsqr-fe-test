@@ -1,16 +1,16 @@
 import React from "react";
 import style from "./table.module.scss";
 import {
-  TableBodyType,
-  TableDataType,
-  TableHeadCellType,
-  TableHeadType,
-  TableRowType,
-  TableType,
+  TableBodyPropType,
+  TableDataPropType,
+  TableHeadCellPropType,
+  TableHeadPropType,
+  TableRowPropType,
+  TablePropType,
 } from "@/types";
 import { classnames } from "@/utils";
 
-const Table = ({ children, className = "", ...rest }: TableType) => {
+const Table = ({ children, className = "", ...rest }: TablePropType) => {
   return (
     <table className={classnames(style.table, className)} {...rest}>
       {children}
@@ -18,14 +18,14 @@ const Table = ({ children, className = "", ...rest }: TableType) => {
   );
 };
 
-const TableHead = ({ children, className = "", ...rest }: TableHeadType) => {
+const TableHead = ({ children, className = "", ...rest }: TableHeadPropType) => {
   return (
     <thead className={classnames(style.table_head, className)} {...rest}>
       {children}
     </thead>
   );
 };
-const TableBody = ({ children, className = "", ...rest }: TableBodyType) => {
+const TableBody = ({ children, className = "", ...rest }: TableBodyPropType) => {
   return (
     <tbody className={classnames(style.table_body, className)} {...rest}>
       {children}
@@ -37,7 +37,7 @@ const TableHeadCell = ({
   children,
   className = "",
   ...rest
-}: TableHeadCellType) => {
+}: TableHeadCellPropType) => {
   return (
     <th className={classnames(style.table_head_cell, className)} {...rest}>
       {children}
@@ -45,7 +45,7 @@ const TableHeadCell = ({
   );
 };
 
-const TableRow = ({ children, className = "", ...rest }: TableRowType) => {
+const TableRow = ({ children, className = "", ...rest }: TableRowPropType) => {
   return (
     <tr className={classnames(style.table_row, className)} {...rest}>
       {children}
@@ -53,7 +53,7 @@ const TableRow = ({ children, className = "", ...rest }: TableRowType) => {
   );
 };
 
-const TableData = ({ children, className = "", ...rest }: TableDataType) => {
+const TableData = ({ children, className = "", ...rest }: TableDataPropType) => {
   return (
     <td className={classnames(style.table_data, className)} {...rest}>
       {children}

@@ -1,13 +1,28 @@
 import Typography from "@/components/atom/typography/typography";
 import Statistics from "@/components/molecules/member/stats/statistics";
-import React from "react";
+import React, { useState } from "react";
 import style from "./users.module.scss";
 import MemberLayout from "../shared/layout/member-layout";
-import LendianTable from "@/components/molecules/member/table/Table";
 import { LendianTableColumnType } from "@/types";
-import { FilterIcon } from "@/assets";
+import {
+  BlacklistIcon,
+  EyeIcon,
+  FilterIcon,
+  UserActivatedIcon,
+} from "@/assets";
+import LendianTable from "@/components/molecules/member/table/table";
+import Pagination from "@/components/molecules/member/table/pagination/pagination";
+import DropDown from "@/components/atom/drop-down/drop-down";
 
 const UsersList = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 10;
+  const totalItems = 100;
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
   const column: LendianTableColumnType = [
     {
       name: (
@@ -56,6 +71,42 @@ const UsersList = () => {
         </div>
       ),
       uid: "status",
+    },
+    {
+      name: "",
+      uid: "action",
+      render: () => {
+        return (
+          <DropDown
+            options={[
+              {
+                id: "view-details",
+                label: (
+                  <DropDown.DropdownAction>
+                    <EyeIcon /> View Details
+                  </DropDown.DropdownAction>
+                ),
+              },
+              {
+                id: "blacklist-user",
+                label: (
+                  <DropDown.DropdownAction>
+                    <BlacklistIcon /> Blacklist User
+                  </DropDown.DropdownAction>
+                ),
+              },
+              {
+                id: "activate-user",
+                label: (
+                  <DropDown.DropdownAction>
+                    <UserActivatedIcon /> Activate User
+                  </DropDown.DropdownAction>
+                ),
+              },
+            ]}
+          />
+        );
+      },
     },
   ];
   const data = [
@@ -141,6 +192,7 @@ const UsersList = () => {
       status: "Inactive",
     },
   ];
+
   return (
     <>
       <Typography className={style.title}>Users</Typography>
@@ -149,6 +201,15 @@ const UsersList = () => {
       </MemberLayout.StatisticsWrapper>
       <MemberLayout.TableWrapper>
         <LendianTable column={column} data={data} />
+        <MemberLayout.PaginationWrapper>
+          <Pagination.PerPage />
+          <Pagination
+            currentPage={currentPage}
+            totalItems={totalItems}
+            itemsPerPage={itemsPerPage}
+            onPageChange={handlePageChange}
+          />
+        </MemberLayout.PaginationWrapper>
       </MemberLayout.TableWrapper>
     </>
   );

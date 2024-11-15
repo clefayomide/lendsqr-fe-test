@@ -6,6 +6,12 @@
   padding-right: 30px;
   .table {
     border-collapse: collapse;
+    tr {
+      .head_cell {
+        width: fit-content;
+        min-width: fit-content;
+      }
+    }
 
     .table_body {
       tr {
