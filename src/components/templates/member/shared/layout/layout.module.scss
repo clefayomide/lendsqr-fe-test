@@ -15,6 +15,8 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
     align-items: center;
     height: 30px;
   }
@@ -26,8 +28,24 @@
     height: calc(100dvh - 100px);
   }
 
+  .menu_toggle {
+    position: fixed;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    bottom: 30px;
+    color: $typography-header-color;
+  }
+
   .sidebar_container {
     height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .toggle {
+    transform: translateX(-100%);
   }
 
   .content_area,
@@ -37,8 +55,25 @@
   }
 
   .content_area {
-    width: calc(100% - $sidebar-width);
-    margin-left: $sidebar-width;
-    padding: 30px;
+    width: 100%;
+    padding: 30px 30px 60px 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    .sidebar_container {
+      display: block;
+      transform: none;
+    }
+
+    .menu_toggle {
+      display: none;
+    }
+
+    .content_area {
+      width: calc(100% - $sidebar-width);
+      margin-left: $sidebar-width;
+    }
   }
 }

@@ -12,13 +12,17 @@ const MemberHeader = () => {
   return (
     <Header>
       <div className={style.toolbox_container}>
-        <Search />
+        <div className={style.search_container}>
+          <Search />
+        </div>
         <div className={style.toolbox_actions}>
-          <Link className={style.docs} href={""}>Docs</Link>
+          <Link className={style.docs} href={""}>
+            Docs
+          </Link>
           <div className={style.toolbox_actions2}>
             <BellIcon />
             <div className={style.toolbor_user_actions}>
-              <NextImage src={avatar} alt="avatar" />
+              <NextImage className={style.user} src={avatar} alt="avatar" />
               <Typography>Adedeji</Typography>
               <ArrowDown />
             </div>

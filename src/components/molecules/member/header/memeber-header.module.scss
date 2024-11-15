@@ -1,19 +1,23 @@
 .toolbox_container {
-  margin-left: 72px ;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 
   .docs {
     text-decoration: underline;
     font-size: 16px;
     color: #213f7d;
+    display: none;
+  }
+
+  .search_container {
+    display: none;
   }
 
   .toolbox_actions,
   .toolbox_actions2 {
-    gap: 40px;
+    gap: 10px;
   }
 
   .toolbox_actions,
@@ -25,5 +29,38 @@
 
   .toolbor_user_actions {
     gap: 10px;
+    .user {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .toolbox_container {
+    justify-content: flex-end;
+    gap: 72px;
+    .toolbox_actions,
+    .toolbox_actions2 {
+      gap: 40px;
+    }
+    .docs {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .toolbox_container {
+    .search_container {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .toolbox_container {
+    margin-left: 72px;
+    justify-content: space-between;
   }
 }
