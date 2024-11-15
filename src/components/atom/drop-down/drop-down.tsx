@@ -43,20 +43,29 @@ const DropDown = ({ trigger, options }: DropdownPropType) => {
   return (
     <div ref={dropdownRef} className={style.dropdown}>
       <div className={style.dropdown_trigger_container}>
-        {trigger || (
-          <Button onClick={handleOpen} className={style.trigger}>
-            <ThreeDots />
-          </Button>
-        )}
+        <Button
+          id="dropdown-button"
+          aria-haspopup="true"
+          aria-expanded={open}
+          aria-controls="dropdown-menu"
+          onClick={handleOpen}
+          className={style.trigger}
+        >
+          {trigger || <ThreeDots />}
+        </Button>
       </div>
 
       {open && (
         <div className={style.dropdown_content_container}>
-          {options.map(({ id, label }) => (
-            <Button className={style.dropdown_action_btn} key={id}>
-              {label}
-            </Button>
-          ))}
+          <ul role="menu" id="dropdown-menu" aria-labelledby="dropdown-button">
+            {options.map(({ id, label }) => (
+              <li>
+                <Button className={style.dropdown_action_btn} key={id}>
+                  {label}
+                </Button>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
