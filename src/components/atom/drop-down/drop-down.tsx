@@ -9,6 +9,7 @@ import Button from "../button/button";
 import { ThreeDots } from "@/assets";
 import style from "./drop-down.module.scss";
 import { DropdownPropType } from "@/types";
+import { createPortal } from "react-dom";
 
 const DropDown = ({ trigger, options }: DropdownPropType) => {
   const [open, setOpen] = useState(false);
@@ -55,25 +56,36 @@ const DropDown = ({ trigger, options }: DropdownPropType) => {
         </Button>
       </div>
 
-      {open && (
-        <div className={style.dropdown_content_container}>
-          <ul role="menu" id="dropdown-menu" aria-labelledby="dropdown-button">
-            {options.map(({ id, label }) => (
-              <li key={id}>
-                <Button className={style.dropdown_action_btn}>{label}</Button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {open &&
+        // dropDownRef.current &&
+        createPortal(
+          <div className={style.dropdown_content_container}>
+            <ul
+              role="menu"
+              id="dropdown-menu"
+              aria-labelledby="dropdown-button"
+            >
+              {options.map(({ id, label }) => (
+                <li key={id}>
+                  <Button className={style.dropdown_action_btn}>{label}</Button>
+                </li>
+              ))}
+            </ul>
+          </div>,
+          dropdownRef.current as Element
+        )}
     </div>
   );
 };
 
-const DropdownAction = ({ children }: { children: ReactNode }) => {
+export const DropdownActionWrapper = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   return <div className={style.dropdown_action_content}>{children}</div>;
 };
 
-DropDown.DropdownAction = DropdownAction;
+// DropDown.DropdownAction = DropdownAction;
 
 export default DropDown;

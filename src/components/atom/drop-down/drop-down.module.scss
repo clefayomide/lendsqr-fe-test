@@ -19,10 +19,11 @@
     border-radius: 4px;
     box-shadow: 3px 5px 20px 0px #0000000a;
     position: absolute;
-    right: -40px;
-    top: 40px !important;
-    background-color: white;
+    right:0;
+    bottom: 0;
     z-index: 2;
+    top: 30px ;
+    background-color: white;
     padding: 0 20px 0px 20px;
     ul {
       list-style-type: none;

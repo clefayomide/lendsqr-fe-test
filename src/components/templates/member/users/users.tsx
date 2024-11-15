@@ -1,6 +1,6 @@
 import Typography from "@/components/atom/typography/typography";
 import Statistics from "@/components/molecules/member/stats/statistics";
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import style from "./users.module.scss";
 import MemberLayout from "../shared/layout/member-layout";
 import { LendianTableColumnType } from "@/types";
@@ -12,7 +12,9 @@ import {
 } from "@/assets";
 import LendianTable from "@/components/molecules/member/table/table";
 import Pagination from "@/components/molecules/member/table/pagination/pagination";
-import DropDown from "@/components/atom/drop-down/drop-down";
+import DropDown, {
+  DropdownActionWrapper,
+} from "@/components/atom/drop-down/drop-down";
 
 const UsersList = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -82,25 +84,25 @@ const UsersList = () => {
               {
                 id: "view-details",
                 label: (
-                  <DropDown.DropdownAction>
+                  <DropdownActionWrapper>
                     <EyeIcon /> View Details
-                  </DropDown.DropdownAction>
+                  </DropdownActionWrapper>
                 ),
               },
               {
                 id: "blacklist-user",
                 label: (
-                  <DropDown.DropdownAction>
+                  <DropdownActionWrapper>
                     <BlacklistIcon /> Blacklist User
-                  </DropDown.DropdownAction>
+                  </DropdownActionWrapper>
                 ),
               },
               {
                 id: "activate-user",
                 label: (
-                  <DropDown.DropdownAction>
+                  <DropdownActionWrapper>
                     <UserActivatedIcon /> Activate User
-                  </DropDown.DropdownAction>
+                  </DropdownActionWrapper>
                 ),
               },
             ]}

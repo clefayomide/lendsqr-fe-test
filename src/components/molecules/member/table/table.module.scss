@@ -1,11 +1,16 @@
 .card {
   box-shadow: 3px 5px 20px 0px #0000000a;
+  overflow-x: scroll;
+  width: 100%;
   background-color: white;
+  scrollbar-width: none;
   border: 1px solid #213f7d0f;
   padding-left: 30px;
   padding-right: 30px;
   .table {
     border-collapse: collapse;
+    min-width: 1024px;
+    width: 1024px;
     tr {
       .head_cell {
         width: fit-content;
@@ -20,6 +25,15 @@
       tr:last-child {
         border-bottom: none;
       }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    .table {
+      width: 100%;
+      min-width: 100%;
     }
   }
 }
