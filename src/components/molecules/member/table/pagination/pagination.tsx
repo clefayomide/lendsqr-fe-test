@@ -108,10 +108,10 @@ const PerPage = () => {
       <Select
         options={[
           { value: "20", label: 20 },
-          { value: "20", label: 40 },
-          { value: "20", label: 60 },
-          { value: "20", label: 80 },
-          { value: "20", label: 100 },
+          { value: "40", label: 40 },
+          { value: "60", label: 60 },
+          { value: "80", label: 80 },
+          { value: "100", label: 100 },
         ]}
       />
       <Typography className={style.count}>out of 100</Typography>

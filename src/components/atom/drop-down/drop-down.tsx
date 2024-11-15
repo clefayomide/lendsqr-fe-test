@@ -59,10 +59,8 @@ const DropDown = ({ trigger, options }: DropdownPropType) => {
         <div className={style.dropdown_content_container}>
           <ul role="menu" id="dropdown-menu" aria-labelledby="dropdown-button">
             {options.map(({ id, label }) => (
-              <li>
-                <Button className={style.dropdown_action_btn} key={id}>
-                  {label}
-                </Button>
+              <li key={id}>
+                <Button className={style.dropdown_action_btn}>{label}</Button>
               </li>
             ))}
           </ul>

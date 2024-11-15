@@ -8,7 +8,9 @@ const Select = ({ options }: SelectPropType) => {
     <div className={style.custom_select}>
       <select>
         {options.map(({ value, label }) => (
-          <option value={value}>{label}</option>
+          <option key={value} value={value}>
+            {label}
+          </option>
         ))}
       </select>
       <ChevronDown className={style.select_arrow_down} />
