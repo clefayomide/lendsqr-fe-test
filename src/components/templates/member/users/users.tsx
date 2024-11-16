@@ -1,9 +1,11 @@
+"use client";
+
 import Typography from "@/components/atom/typography/typography";
 import Statistics from "@/components/molecules/member/stats/statistics";
-import React, {  useState } from "react";
+import React, { useMemo, useState } from "react";
 import style from "./users.module.scss";
 import MemberLayout from "../shared/layout/member-layout";
-import { LendianTableColumnType } from "@/types";
+import { LendianTableColumnType, User } from "@/types";
 import {
   BlacklistIcon,
   EyeIcon,
@@ -16,10 +18,16 @@ import DropDown, {
   DropdownActionWrapper,
 } from "@/components/atom/drop-down/drop-down";
 
-const UsersList = () => {
+const UsersList = ({ data }: { data: User }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 10;
-  const totalItems = 100;
+  const totalItems = data.length;
+
+  const item = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    return data?.slice(start, end);
+  }, [data, currentPage]);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -111,89 +119,89 @@ const UsersList = () => {
       },
     },
   ];
-  const data = [
-    {
-      id: "1",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Inactive",
-    },
-    {
-      id: "2",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Pending",
-    },
-    {
-      id: "3",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      id: "4",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Pending",
-    },
-    {
-      id: "5",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Active",
-    },
-    {
-      id: "6",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Active",
-    },
-    {
-      id: "7",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      id: "8",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Inactive",
-    },
-    {
-      id: "9",
-      org: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phone_number: "08078903721",
-      date_joined: "May 15, 2020 10:00 AM",
-      status: "Inactive",
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: "1",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Inactive",
+  //   },
+  //   {
+  //     id: "2",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Pending",
+  //   },
+  //   {
+  //     id: "3",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Blacklisted",
+  //   },
+  //   {
+  //     id: "4",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Pending",
+  //   },
+  //   {
+  //     id: "5",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Active",
+  //   },
+  //   {
+  //     id: "6",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Active",
+  //   },
+  //   {
+  //     id: "7",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Blacklisted",
+  //   },
+  //   {
+  //     id: "8",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Inactive",
+  //   },
+  //   {
+  //     id: "9",
+  //     org: "Lendsqr",
+  //     username: "Adedeji",
+  //     email: "adedeji@lendsqr.com",
+  //     phone_number: "08078903721",
+  //     date_joined: "May 15, 2020 10:00 AM",
+  //     status: "Inactive",
+  //   },
+  // ];
 
   return (
     <>
@@ -202,7 +210,7 @@ const UsersList = () => {
         <Statistics />
       </MemberLayout.StatisticsWrapper>
       <MemberLayout.TableWrapper>
-        <LendianTable column={column} data={data} />
+        <LendianTable column={column} data={item} />
         <MemberLayout.PaginationWrapper>
           <Pagination.PerPage />
           <Pagination

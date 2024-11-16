@@ -26,6 +26,16 @@ export type LendianTableColumnType = Array<{
   }) => JSX.Element | React.FC | React.ReactNode;
 }>;
 
+export type User = {
+  id: string;
+  organization: string;
+  email: string;
+  username: string;
+  phoneNumber: string;
+  dateJoined: string;
+  status: "inactive" | "pending" | "blacklisted" | "active";
+}[];
+
 export type LendianTableDataType = {
   id: string;
   [key: string]: string;
@@ -33,7 +43,7 @@ export type LendianTableDataType = {
 
 export type LendianTablePropType = {
   column: LendianTableColumnType;
-  data: LendianTableDataType;
+  data: User;
 };
 
 export type TablePropType = JSX.IntrinsicElements["table"];
@@ -56,10 +66,10 @@ type DropdownOptions = {
   label: ReactNode;
 }[];
 
-type SelectOptions ={
-  value:string;
+type SelectOptions = {
+  value: string;
   label: ReactNode;
-}[]
+}[];
 
 export type DropdownPropType = {
   trigger?: ReactNode;
@@ -67,5 +77,5 @@ export type DropdownPropType = {
 };
 
 export type SelectPropType = {
-  options: SelectOptions
-}
+  options: SelectOptions;
+};

@@ -68,7 +68,7 @@ const Sidebar = () => {
     <aside className={`${style.sidebar_container} ${workSans.className}`}>
       {data.map(({ title, routes }) => {
         return (
-          <div key={title} className={style.bar}>
+          <div key={crypto.randomUUID()} className={style.bar}>
             {title && <Typography className={style.title}>{title}</Typography>}
             {routes.map(({ title, isActive, icon: Icon }, index) => {
               return (
