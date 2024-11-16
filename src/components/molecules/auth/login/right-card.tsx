@@ -13,8 +13,8 @@ const RightCard = () => {
           Enter details to login.
         </Typography>
         <div className={style.right_card_input_container}>
-          <Input className={style.email_input} placeholder="Email" />
-          <Input className={style.pwd_input} placeholder="Password" />
+          <Input type="email" required className={style.email_input} placeholder="Email" />
+          <Input type="password" required className={style.pwd_input} placeholder="Password" />
           <Typography className={style.forgot_pwd}>FORGOT PASSWORD?</Typography>
           <Button className={style.button}>LOG IN</Button>
         </div>

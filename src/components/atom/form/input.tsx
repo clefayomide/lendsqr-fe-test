@@ -25,11 +25,7 @@ const Input = forwardRef(
         <input
           ref={ref}
           id={id}
-          className={classnames(
-            style.input,
-            // `${errorMessage && style.input_error}`,
-            className
-          )}
+          className={classnames(style.input, className)}
           {...rest}
         />
         {errorMessage && (
