@@ -48,8 +48,19 @@ const PaginationWrapper = ({ children }: { children: ReactNode }) => {
   return <div className={style.pagination_wrapper}>{children}</div>;
 };
 
+const Wrapper = ({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) => {
+  return <div className={classnames(style.wrapper, className)}>{children}</div>;
+};
+
 MemberLayout.StatisticsWrapper = StatisticsWrapper;
 MemberLayout.TableWrapper = TableWrapper;
 MemberLayout.PaginationWrapper = PaginationWrapper;
+MemberLayout.Wrapper = Wrapper;
 
 export default MemberLayout;

@@ -1,0 +1,114 @@
+.back_button {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  background-color: transparent;
+  color: #545f7d;
+  font-size: 16px;
+  font-weight: 400;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.wrapper {
+  margin-top: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 20px;
+  .title {
+    color: #213f7d;
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  .actions_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .bl_btn,
+  .acv_btn {
+    width: 170px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  .bl_btn {
+    color: #e4033b;
+    border: 1px solid #e4033b;
+  }
+
+  .acv_btn {
+    color: #39cdcc;
+    border: 1px solid #39cdcc;
+  }
+}
+
+.info_card {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  margin-top: 40px;
+  height: 210px !important;
+  position: relative;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  .wrapper2 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    justify-content: flex-start;
+    gap: 50px;
+    .tab {
+      height: 29px;
+      width: fit-content;
+      min-width: fit-content;
+      background-color: transparent;
+      font-weight: 400;
+      font-size: 16px;
+      border-radius: 0;
+    }
+
+    .inactive {
+      color: #000000cc;
+    }
+
+    .active {
+      color: #39cdcc;
+      border-bottom: 2px solid #39cdcc;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.bio_data {
+  margin-top: 40px;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .actions_container {
+      flex-direction: row;
+      justify-content: flex-end !important;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    .actions_container {
+      justify-content: start;
+    }
+  }
+}

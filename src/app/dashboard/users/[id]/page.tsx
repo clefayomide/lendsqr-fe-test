@@ -1,11 +1,9 @@
+"use client"
+import Details from "@/components/templates/member/users/details/details";
 import React from "react";
 
 const UserDetails = () => {
-  return (
-    <div>
-      <div></div>
-    </div>
-  );
+  return <Details />;
 };
 
 export default UserDetails;

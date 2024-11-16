@@ -1,0 +1,102 @@
+.info_container {
+  display: flex;
+  margin-top: 10px;
+  gap: 20px;
+
+  .user_balance,
+  .user_tier {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .user_tier {
+    padding-right: 20px;
+    .tier_star {
+      display: flex;
+      gap: 4px;
+    }
+
+    border-right: 1px solid #545f7d;
+    .tier {
+      font-size: 14px;
+      font-weight: 500;
+      color: #545f7d;
+    }
+    .tier_star {
+      margin-top: 10px;
+    }
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #545f7d;
+    padding-right: 20px;
+    gap: 20px;
+    &_id,
+    .username {
+      color: #213f7d;
+    }
+
+    &_id {
+      font-weight: 400;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .username {
+      font-weight: 500;
+      font-size: 22px;
+    }
+  }
+
+  .user_balance {
+    .balance {
+      color: #213f7d;
+      font-size: 22px;
+      font-weight: 500;
+    }
+    .bank_details {
+      font-size: 12px;
+      margin-top: 10px;
+      font-weight: 400;
+      color: #213f7d;
+    }
+  }
+}
+
+.container {
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid #213f7d;
+  &:last-child {
+    border: none;
+  }
+  .section_title {
+    color: #213f7d;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .flexed_container {
+    display: flex;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 30px;
+    .content {
+      width: 230px;
+      .title {
+        color: #545f7d;
+        font-weight: 400;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      .value {
+        color: #545f7d;
+        font-weight: 500;
+        font-size: 16px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
