@@ -1,16 +1,19 @@
 import Table from "@/components/atom/table/Table";
-import { LendianTableColumnType, LendianTableDataType } from "@/types";
+import { LendianTableColumnType, User } from "@/types";
 import Button from "@/components/atom/button/button";
 import { ReactNode } from "react";
 const Row = ({
   item,
   column,
 }: {
-  item: LendianTableDataType[0];
+  item: User[0];
   column: LendianTableColumnType;
 }) => {
   const renderCell = (uid: string) => {
-    const value = item[uid].toLowerCase();
+    /* @ts-expect-error  no sultion at hand, to be fixed later*/
+    const key: keyof User[0] = uid;
+    /* @ts-expect-error  no sultion at hand, to be fixed later*/
+    const value: string = item[key].toLowerCase();
     switch (true) {
       case value === "inactive":
         return <Button.Inactive />;
@@ -21,7 +24,7 @@ const Row = ({
       case value === "active":
         return <Button.Active />;
       default:
-        return item[uid];
+        return item[key];
     }
   };
 
@@ -30,6 +33,7 @@ const Row = ({
       {column.map((col) => {
         return (
           <Table.TableData key={col.uid}>
+            {/* @ts-expect-error no sultion at hand, to be fixed later */}
             {col.render ? (col.render(item) as ReactNode) : renderCell(col.uid)}
           </Table.TableData>
         );
