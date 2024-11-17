@@ -22,19 +22,9 @@ export type LendianTableColumnType = Array<{
   name: ReactNode;
   uid: string;
   render?: (value: {
-    [key: string]: any;
+    [key: string]: string;
   }) => JSX.Element | React.FC | React.ReactNode;
 }>;
-
-// export type User = {
-//   id: string;
-//   organization: string;
-//   email: string;
-//   username: string;
-//   phoneNumber: string;
-//   dateJoined: string;
-//   status: "inactive" | "pending" | "blacklisted" | "active";
-// }[];
 
 export type LendianTableDataType = {
   id: string;

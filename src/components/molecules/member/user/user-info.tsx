@@ -14,7 +14,7 @@ const UserInfo = ({ fullname }: { fullname: string }) => {
         </div>
       </div>
       <div className={style.user_tier}>
-        <Typography className={style.tier}>User's Tier</Typography>
+        <Typography className={style.tier}>{"User's Tier"}</Typography>
         <div className={style.tier_star}>
           <StarFilled />
           <Star />

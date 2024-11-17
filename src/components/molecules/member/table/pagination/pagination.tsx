@@ -76,7 +76,7 @@ const Pagination = ({
         <ChevronLeft />
       </Button>
 
-      {getPageNumbers().map((page, index) => (
+      {getPageNumbers().map((page) => (
         <Button
           key={page}
           onClick={() => typeof page === "number" && handlePageClick(page)}
