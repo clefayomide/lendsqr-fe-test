@@ -3,7 +3,7 @@ import Table from "@/components/atom/table/Table";
 import { LendianTablePropType } from "@/types";
 import Card from "@/components/atom/card/card";
 import style from "./table.module.scss";
-import Row from "./row";
+import Row from "./Row";
 export const LendianTable = ({ column, data }: LendianTablePropType) => {
   const renderColumn = column.map(({ uid, name }) => {
     return (
