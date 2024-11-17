@@ -1,8 +1,37 @@
 import Typography from "@/components/atom/typography/typography";
 import React from "react";
 import style from "./user.module.scss";
+import { UserProfile } from "@/types";
 
-const BioData = () => {
+const BioData = ({ bioData }: { bioData: UserProfile }) => {
+  const {
+    full_name,
+    bvn,
+    gender,
+    marital_status,
+    children,
+    type_of_residence,
+    level_of_education,
+    employment_status,
+    sector_of_employment,
+    duration_of_employment,
+    office_email,
+    monthly_income,
+    loan_repayment,
+    twitter,
+    instagram,
+    facebook,
+    phone_number,
+    email,
+    guarantor_one_fullname,
+    guarantor_one_email_address,
+    guarantor_one_phone_number,
+    guarantor_one_relationship,
+    guarantor_two_fullname,
+    guarantor_two_email_address,
+    guarantor_two_phone_number,
+    guarantor_two_relationship,
+  } = bioData;
   return (
     <div>
       <div className={style.container}>
@@ -15,7 +44,7 @@ const BioData = () => {
               full Name
             </Typography>
             <Typography className={style.value} variant="h4">
-              Grace Effiom
+              {full_name}
             </Typography>
           </div>
           <div className={style.content}>
@@ -23,7 +52,7 @@ const BioData = () => {
               Phone Number
             </Typography>
             <Typography className={style.value} variant="h4">
-              07060780922
+              {phone_number}
             </Typography>
           </div>
           <div className={style.content}>
@@ -31,7 +60,7 @@ const BioData = () => {
               Email Address
             </Typography>
             <Typography className={style.value} variant="h4">
-              grace@gmail.com
+              {email}
             </Typography>
           </div>
           <div className={style.content}>
@@ -39,7 +68,7 @@ const BioData = () => {
               Bvn
             </Typography>
             <Typography className={style.value} variant="h4">
-              07060780922
+              {bvn}
             </Typography>
           </div>
           <div className={style.content}>
@@ -47,7 +76,7 @@ const BioData = () => {
               Gender
             </Typography>
             <Typography className={style.value} variant="h4">
-              Female
+              {gender}
             </Typography>
           </div>
           <div className={style.content}>
@@ -55,7 +84,7 @@ const BioData = () => {
               Marital status
             </Typography>
             <Typography className={style.value} variant="h4">
-              Single
+              {marital_status}
             </Typography>
           </div>
           <div className={style.content}>
@@ -63,7 +92,7 @@ const BioData = () => {
               Children
             </Typography>
             <Typography className={style.value} variant="h4">
-              None
+              {children}
             </Typography>
           </div>
           <div className={style.content}>
@@ -71,7 +100,7 @@ const BioData = () => {
               Type of residence
             </Typography>
             <Typography className={style.value} variant="h4">
-              Parent’s Apartment
+              {type_of_residence}
             </Typography>
           </div>
         </div>
@@ -86,7 +115,7 @@ const BioData = () => {
               level of education
             </Typography>
             <Typography className={style.value} variant="h4">
-              B.Sc
+              {level_of_education}
             </Typography>
           </div>
           <div className={style.content}>
@@ -94,7 +123,7 @@ const BioData = () => {
               employment status
             </Typography>
             <Typography className={style.value} variant="h4">
-              Employed
+              {employment_status}
             </Typography>
           </div>
           <div className={style.content}>
@@ -102,7 +131,7 @@ const BioData = () => {
               sector of employment
             </Typography>
             <Typography className={style.value} variant="h4">
-              FinTech
+              {sector_of_employment}
             </Typography>
           </div>
           <div className={style.content}>
@@ -110,7 +139,7 @@ const BioData = () => {
               Duration of employment
             </Typography>
             <Typography className={style.value} variant="h4">
-              2 years
+              {duration_of_employment}
             </Typography>
           </div>
           <div className={style.content}>
@@ -118,7 +147,7 @@ const BioData = () => {
               office email
             </Typography>
             <Typography className={style.value} variant="h4">
-              grace@lendsqr.com
+              {office_email}
             </Typography>
           </div>
           <div className={style.content}>
@@ -126,7 +155,7 @@ const BioData = () => {
               Monthly income
             </Typography>
             <Typography className={style.value} variant="h4">
-              ₦200,000.00- ₦400,000.00
+              {monthly_income}
             </Typography>
           </div>
           <div className={style.content}>
@@ -134,7 +163,7 @@ const BioData = () => {
               loan repayment
             </Typography>
             <Typography className={style.value} variant="h4">
-              40,000
+              {loan_repayment}
             </Typography>
           </div>
         </div>
@@ -149,7 +178,7 @@ const BioData = () => {
               Twitter
             </Typography>
             <Typography className={style.value} variant="h4">
-              @grace_effiom
+              {twitter}
             </Typography>
           </div>
           <div className={style.content}>
@@ -157,7 +186,7 @@ const BioData = () => {
               Facebook
             </Typography>
             <Typography className={style.value} variant="h4">
-              Grace Effiom
+              {facebook}
             </Typography>
           </div>
           <div className={style.content}>
@@ -165,7 +194,7 @@ const BioData = () => {
               Instagram
             </Typography>
             <Typography className={style.value} variant="h4">
-              @grace_effiom
+              {instagram}
             </Typography>
           </div>
         </div>
@@ -180,7 +209,7 @@ const BioData = () => {
               full Name
             </Typography>
             <Typography className={style.value} variant="h4">
-              Debby Ogana
+              {guarantor_two_fullname}
             </Typography>
           </div>
           <div className={style.content}>
@@ -188,7 +217,7 @@ const BioData = () => {
               Phone Number
             </Typography>
             <Typography className={style.value} variant="h4">
-              07060780922
+              {guarantor_two_phone_number}
             </Typography>
           </div>
           <div className={style.content}>
@@ -196,7 +225,7 @@ const BioData = () => {
               Email Address
             </Typography>
             <Typography className={style.value} variant="h4">
-              grace@gmail.com
+              {guarantor_two_email_address}
             </Typography>
           </div>
           <div className={style.content}>
@@ -204,41 +233,9 @@ const BioData = () => {
               Relationship
             </Typography>
             <Typography className={style.value} variant="h4">
-              Sister
+              {guarantor_two_relationship}
             </Typography>
           </div>
-          {/* <div className={style.content}>
-            <Typography className={style.title} variant="h3">
-              Gender
-            </Typography>
-            <Typography className={style.value} variant="h4">
-              Female
-            </Typography>
-          </div>
-          <div className={style.content}>
-            <Typography className={style.title} variant="h3">
-              Marital status
-            </Typography>
-            <Typography className={style.value} variant="h4">
-              Single
-            </Typography>
-          </div>
-          <div className={style.content}>
-            <Typography className={style.title} variant="h3">
-              Children
-            </Typography>
-            <Typography className={style.value} variant="h4">
-              None
-            </Typography>
-          </div>
-          <div className={style.content}>
-            <Typography className={style.title} variant="h3">
-              Type of residence
-            </Typography>
-            <Typography className={style.value} variant="h4">
-              Parent’s Apartment
-            </Typography>
-          </div> */}
         </div>
       </div>
       <div className={style.container}>
@@ -251,7 +248,7 @@ const BioData = () => {
               full Name
             </Typography>
             <Typography className={style.value} variant="h4">
-              Debby Ogana
+              {guarantor_one_fullname}
             </Typography>
           </div>
           <div className={style.content}>
@@ -259,7 +256,7 @@ const BioData = () => {
               Phone Number
             </Typography>
             <Typography className={style.value} variant="h4">
-              07060780922
+              {guarantor_one_phone_number}
             </Typography>
           </div>
           <div className={style.content}>
@@ -267,7 +264,7 @@ const BioData = () => {
               Email Address
             </Typography>
             <Typography className={style.value} variant="h4">
-              grace@gmail.com
+              {guarantor_one_email_address}
             </Typography>
           </div>
           <div className={style.content}>
@@ -275,7 +272,7 @@ const BioData = () => {
               Relationship
             </Typography>
             <Typography className={style.value} variant="h4">
-              Sister
+              {guarantor_one_relationship}
             </Typography>
           </div>
         </div>

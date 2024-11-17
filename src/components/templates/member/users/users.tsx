@@ -17,8 +17,10 @@ import Pagination from "@/components/molecules/member/table/pagination/paginatio
 import DropDown, {
   DropdownActionWrapper,
 } from "@/components/atom/drop-down/drop-down";
+import { useRouter } from "next/navigation";
 
 const UsersList = ({ data }: { data: User }) => {
+  const router = useRouter();
   const [paginationData, setPaginationData] = useState({
     currentPage: 1,
     perPage: 10,
@@ -102,7 +104,7 @@ const UsersList = ({ data }: { data: User }) => {
     {
       name: "",
       uid: "action",
-      render: () => {
+      render: (data) => {
         return (
           <DropDown
             options={[
@@ -113,6 +115,10 @@ const UsersList = ({ data }: { data: User }) => {
                     <EyeIcon /> View Details
                   </DropdownActionWrapper>
                 ),
+                onClick: () => {
+                  localStorage.setItem("userDetails", JSON.stringify(data));
+                  router.push("/dashboard/users/1");
+                },
               },
               {
                 id: "blacklist-user",

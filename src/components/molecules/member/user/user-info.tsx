@@ -3,13 +3,13 @@ import Typography from "@/components/atom/typography/typography";
 import React from "react";
 import style from "./user.module.scss";
 
-const UserInfo = () => {
+const UserInfo = ({ fullname }: { fullname: string }) => {
   return (
     <div className={style.info_container}>
       <div className={style.user}>
         <UserProfileIcon />
         <div>
-          <Typography className={style.username}>Grace Effiom</Typography>
+          <Typography className={style.username}>{fullname}</Typography>
           <Typography className={style.user_id}>LSQFf587g90</Typography>
         </div>
       </div>

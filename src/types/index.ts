@@ -26,15 +26,15 @@ export type LendianTableColumnType = Array<{
   }) => JSX.Element | React.FC | React.ReactNode;
 }>;
 
-export type User = {
-  id: string;
-  organization: string;
-  email: string;
-  username: string;
-  phoneNumber: string;
-  dateJoined: string;
-  status: "inactive" | "pending" | "blacklisted" | "active";
-}[];
+// export type User = {
+//   id: string;
+//   organization: string;
+//   email: string;
+//   username: string;
+//   phoneNumber: string;
+//   dateJoined: string;
+//   status: "inactive" | "pending" | "blacklisted" | "active";
+// }[];
 
 export type LendianTableDataType = {
   id: string;
@@ -64,6 +64,7 @@ export type PaginationPropType = {
 type DropdownOptions = {
   id: string | number;
   label: ReactNode;
+  onClick?: () => void;
 }[];
 
 type SelectOptions = {
@@ -79,4 +80,72 @@ export type DropdownPropType = {
 export type SelectPropType = {
   options: SelectOptions;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+};
+
+type Guarantor = {
+  guarantor_fullname: string;
+  guarantor_phone_number: string;
+  guarantor_email_address: string;
+  guarantor_relationship: string;
+};
+
+type UserDetails = {
+  full_name: string;
+  bvn: string;
+  gender: string;
+  marital_status: string;
+  children: string;
+  type_of_residence: string;
+  level_of_education: string;
+  employment_status: string;
+  sector_of_employment: string;
+  duration_of_employment: string;
+  office_email: string;
+  monthly_income: string;
+  loan_repayment: string;
+  twitter: string;
+  facebook: string;
+  instagram: string;
+  guarantors: Guarantor[];
+};
+
+export type User = {
+  id: string;
+  org: string;
+  username: string;
+  email: string;
+  phone_number: string;
+  date_joined: string;
+  status: "inactive" | "pending" | "blacklisted" | "active";
+  details: UserDetails;
+}[];
+
+
+export type UserProfile = {
+  full_name: string;
+  bvn: string;
+  gender: string;
+  marital_status: string;
+  children: string;
+  type_of_residence: string;
+  level_of_education: string;
+  employment_status: string;
+  sector_of_employment: string;
+  duration_of_employment: string;
+  office_email: string;
+  monthly_income: string;
+  loan_repayment: string;
+  twitter: string;
+  instagram: string;
+  facebook: string;
+  phone_number: string;
+  email: string;
+  guarantor_one_fullname: string;
+  guarantor_one_email_address: string;
+  guarantor_one_phone_number: string;
+  guarantor_one_relationship: string;
+  guarantor_two_fullname: string;
+  guarantor_two_email_address: string;
+  guarantor_two_phone_number: string;
+  guarantor_two_relationship: string;
 };
