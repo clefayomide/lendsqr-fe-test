@@ -1,9 +1,9 @@
 import React from "react";
 import Table from "@/components/atom/table/Table";
 import { LendianTablePropType } from "@/types";
-import Row from "./row";
 import Card from "@/components/atom/card/card";
 import style from "./table.module.scss";
+import Row from "./row";
 export const LendianTable = ({ column, data }: LendianTablePropType) => {
   const renderColumn = column.map(({ uid, name }) => {
     return (
