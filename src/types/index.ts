@@ -120,7 +120,6 @@ export type User = {
   details: UserDetails;
 }[];
 
-
 export type UserProfile = {
   full_name: string;
   bvn: string;

@@ -6,6 +6,7 @@ import Head from "next/head";
 
 const workSans = Work_Sans({
   weight: "400",
+  subsets: ["latin"],
 });
 const Layout = ({ children }: { children: ReactNode }) => {
   return (

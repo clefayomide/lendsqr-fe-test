@@ -9,8 +9,10 @@ import UserInfo from "@/components/molecules/member/user/user-info";
 import { classnames } from "@/utils";
 import BioData from "@/components/molecules/member/user/bio-data";
 import { User, UserProfile } from "@/types";
+import { useRouter } from "next/navigation";
 
 const Details = () => {
+  const router = useRouter();
   const userDetails: User[0] = JSON.parse(
     localStorage.getItem("userDetails") ?? "{}"
   );
@@ -88,7 +90,7 @@ const Details = () => {
   };
   return (
     <>
-      <Button className={style.back_button}>
+      <Button onClick={() => router.back()} className={style.back_button}>
         <BackArrowIcon /> Back to Users
       </Button>
 
@@ -118,7 +120,6 @@ const Details = () => {
       </Card>
       <Card className={style.bio_data}>
         <BioData bioData={bioData} />
-
       </Card>
     </>
   );

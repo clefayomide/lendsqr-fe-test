@@ -7,6 +7,8 @@ import { Work_Sans } from "next/font/google";
 
 const workSans = Work_Sans({
   weight: "400",
+  subsets: ["latin"],
+
 });
 const Search = () => {
   return (

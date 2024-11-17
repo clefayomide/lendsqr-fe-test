@@ -20,6 +20,8 @@ import Typography from "@/components/atom/typography/typography";
 
 const workSans = Work_Sans({
   weight: "400",
+  subsets: ["latin"],
+
 });
 
 type BarTypes = Array<{
