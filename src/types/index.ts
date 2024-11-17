@@ -78,4 +78,5 @@ export type DropdownPropType = {
 
 export type SelectPropType = {
   options: SelectOptions;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };

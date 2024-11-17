@@ -19,18 +19,35 @@ import DropDown, {
 } from "@/components/atom/drop-down/drop-down";
 
 const UsersList = ({ data }: { data: User }) => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 10;
+  const [paginationData, setPaginationData] = useState({
+    currentPage: 1,
+    perPage: 10,
+  });
+
   const totalItems = data.length;
 
   const item = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
+    const start = (paginationData.currentPage - 1) * paginationData.perPage;
+    const end = start + paginationData.perPage;
     return data?.slice(start, end);
-  }, [data, currentPage]);
+  }, [data, paginationData]);
 
   const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
+    setPaginationData((prev) => {
+      return {
+        ...prev,
+        currentPage: pageNumber,
+      };
+    });
+  };
+
+  const handlePerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPaginationData((prev) => {
+      return {
+        ...prev,
+        perPage: Number(e.target.value),
+      };
+    });
   };
 
   const column: LendianTableColumnType = [
@@ -119,89 +136,6 @@ const UsersList = ({ data }: { data: User }) => {
       },
     },
   ];
-  // const data = [
-  //   {
-  //     id: "1",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Inactive",
-  //   },
-  //   {
-  //     id: "2",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Pending",
-  //   },
-  //   {
-  //     id: "3",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Blacklisted",
-  //   },
-  //   {
-  //     id: "4",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Pending",
-  //   },
-  //   {
-  //     id: "5",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Active",
-  //   },
-  //   {
-  //     id: "6",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Active",
-  //   },
-  //   {
-  //     id: "7",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Blacklisted",
-  //   },
-  //   {
-  //     id: "8",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Inactive",
-  //   },
-  //   {
-  //     id: "9",
-  //     org: "Lendsqr",
-  //     username: "Adedeji",
-  //     email: "adedeji@lendsqr.com",
-  //     phone_number: "08078903721",
-  //     date_joined: "May 15, 2020 10:00 AM",
-  //     status: "Inactive",
-  //   },
-  // ];
 
   return (
     <>
@@ -212,11 +146,11 @@ const UsersList = ({ data }: { data: User }) => {
       <MemberLayout.TableWrapper>
         <LendianTable column={column} data={item} />
         <MemberLayout.PaginationWrapper>
-          <Pagination.PerPage />
+          <Pagination.PerPage onChange={handlePerPageChange} />
           <Pagination
-            currentPage={currentPage}
+            currentPage={paginationData.currentPage}
             totalItems={totalItems}
-            itemsPerPage={itemsPerPage}
+            itemsPerPage={paginationData.perPage}
             onPageChange={handlePageChange}
           />
         </MemberLayout.PaginationWrapper>
