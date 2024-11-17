@@ -12,12 +12,12 @@ import {
   FilterIcon,
   UserActivatedIcon,
 } from "@/assets";
-import LendianTable from "@/components/molecules/member/table/table";
 import Pagination from "@/components/molecules/member/table/pagination/pagination";
 import DropDown, {
   DropdownActionWrapper,
 } from "@/components/atom/drop-down/drop-down";
 import { useRouter } from "next/navigation";
+import LendianTable from "@/components/molecules/member/table/table";
 
 const UsersList = ({ data }: { data: User }) => {
   const router = useRouter();
