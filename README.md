@@ -11,5 +11,5 @@ src/
 
 
 ## Design Patterns used:
-- Atomic Design Patterns
-- Compound Design Patterns
+- Atomic Design Pattern
+- Compound Design Pattern
